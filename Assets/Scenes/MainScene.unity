@@ -2799,11 +2799,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 814216902}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd2b9d016ce43f44694f105262293651, type: 3}
+  m_Script: {fileID: 11500000, guid: 56972527b9526d14e8f453cc790f9de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team1Score: 0
-  scoreText: {fileID: 0}
+  playerScore: 0
+  scoreText: {fileID: 562831540}
 --- !u!4 &814216904
 Transform:
   m_ObjectHideFlags: 0
