@@ -56,11 +56,7 @@ public class Ghost : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Pacman"))
         {
-            if (frightened.enabled) {
-                GameManager.Instance.GhostEaten(this);
-            } else {
-                GameManager.Instance.PacmanEaten();
-            }
+            collision.gameObject.GetComponent<Pacman>().DeathSequence();
         }
     }
 

@@ -331,15 +331,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Pacman pacman;
     [SerializeField] private Transform pellets;
     [SerializeField] private Text gameOverText;
-    [SerializeField] private Text scoreText;
-    [SerializeField] private Text livesText;
+    [SerializeField] private Text ghostScoreText;
+    [SerializeField] private Text pacmanScoreText;
 
     private int ghostMultiplier = 1;
-    private int lives = 3;
-    private int score = 0;
-
-    public int Lives => lives;
-    public int Score => score;
+    private int gscore = 0;
+    private int pscore = 0;
+    public int GhostScore => gscore;
+    public int PacmanScore => pscore;
 
     private void Awake()
     {
@@ -361,8 +360,8 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-        SetScore(0);
-        SetLives(3);
+        SetPacmanScore(0);
+        SetGhostScore(0);
         NewRound();
     }
 
@@ -397,44 +396,22 @@ public class GameManager : MonoBehaviour
         pacman.gameObject.SetActive(false);
     }
 
-    private void SetLives(int lives)
+    private void SetPacmanScore(int score)
     {
-        this.lives = lives;
-        livesText.text = "x" + lives.ToString();
+        this.pscore = score;
+        pacmanScoreText.text = score.ToString().PadLeft(2, '0');
     }
-
-    private void SetScore(int score)
+    private void SetGhostScore(int score)
     {
-        this.score = score;
-        scoreText.text = score.ToString().PadLeft(2, '0');
-    }
-
-    public void PacmanEaten()
-    {
-        pacman.DeathSequence();
-
-        SetLives(lives - 1);
-
-        if (lives > 0) {
-            Invoke(nameof(ResetState), 3f);
-        } else {
-            GameOver();
-        }
-    }
-
-    public void GhostEaten(Ghost ghost)
-    {
-        int points = ghost.points * ghostMultiplier;
-        SetScore(score + points);
-
-        ghostMultiplier++;
+        this.gscore = score;
+        ghostScoreText.text = score.ToString().PadLeft(2, '0');
     }
 
     public void PelletEaten(Pellet pellet)
     {
         pellet.gameObject.SetActive(false);
 
-        SetScore(score + pellet.points);
+        SetPacmanScore(pscore + pellet.points);
 
         if (!HasRemainingPellets())
         {
