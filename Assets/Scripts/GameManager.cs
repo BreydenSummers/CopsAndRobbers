@@ -58,6 +58,19 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void RobberCaught(Robber robber)
+    {
+        SetCopScore(CopScore + RobberCatchPoints); // Increment Cop's score
+        StartCoroutine(DisableRobberForSeconds(robber, 10)); // Disable the Robber GameObject for 10 seconds
+    }
+
+    IEnumerator DisableRobberForSeconds(Robber robber, float seconds)
+    {
+        robber.gameObject.SetActive(false);
+        yield return new WaitForSeconds(seconds);
+        robber.gameObject.SetActive(true);
+    }
+
     private void GameOver(){
         for (int i = 0; i < this.cops.Length; i++)
         {
@@ -69,10 +82,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RobberCaught(Robber robber){
-        SetCopScore(this.CopScore + this.RobberCatchPoints);
-        robber.gameObject.SetActive(false);
-    }
     public void CopCaught(Cop cop){
         SetRobberScore(this.RobberScore + this.CopCatchPoints);
         cop.gameObject.SetActive(false);
