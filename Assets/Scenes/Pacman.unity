@@ -423,9 +423,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 469897150}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2bf445c53cf5dd43bb5f47ad6f11f59, type: 3}
+  m_Script: {fileID: 11500000, guid: bcc0e4251b94249fa9d6b54cbf7ca1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 2065495718}
+  nameObject: {fileID: 0}
   ghosts:
   - {fileID: 467728135}
   - {fileID: 1566492903}
@@ -435,7 +437,7 @@ MonoBehaviour:
   pellets: {fileID: 1910537628}
   gameOverText: {fileID: 1133529214}
   scoreText: {fileID: 1945791160}
-  livesText: {fileID: 0}
+  livesText: {fileID: 886804190}
 --- !u!4 &469897152
 Transform:
   m_ObjectHideFlags: 0
