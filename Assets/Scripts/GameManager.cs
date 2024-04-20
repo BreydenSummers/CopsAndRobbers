@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Runtime.InteropServices;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     public Canvas canvas;
     public GameObject nameObject;
     private PlayerJoin[] playerJoins;
@@ -22,7 +24,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         playerJoins = new PlayerJoin[0];
+        NewGame();
+
     }
 
     void Update()
@@ -321,4 +326,127 @@ public class GameManager : MonoBehaviour
         public bool triangle;
         public bool plus;
     }
+
+    [SerializeField] private Ghost[] ghosts;
+    [SerializeField] private Pacman pacman;
+    [SerializeField] private Transform pellets;
+    [SerializeField] private Text gameOverText;
+    [SerializeField] private Text ghostScoreText;
+    [SerializeField] private Text pacmanScoreText;
+
+    private int ghostMultiplier = 1;
+    private int gscore = 0;
+    private int pscore = 0;
+    public int GhostScore => gscore;
+    public int PacmanScore => pscore;
+
+    private void Awake()
+    {
+        if (Instance != null) {
+            DestroyImmediate(gameObject);
+        } else {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("I have init");
+        }
+    }
+
+    // private void Update()
+    // {
+    //     if (lives <= 0 && Input.anyKeyDown) {
+    //         NewGame();
+    //     }
+    // }
+
+    private void NewGame()
+    {
+        SetPacmanScore(0);
+        SetGhostScore(0);
+        NewRound();
+    }
+
+    private void NewRound()
+    {
+        gameOverText.enabled = false;
+
+        foreach (Transform pellet in pellets) {
+            pellet.gameObject.SetActive(true);
+        }
+
+        ResetState();
+    }
+
+    private void ResetState()
+    {
+        for (int i = 0; i < ghosts.Length; i++) {
+            ghosts[i].ResetState();
+        }
+
+        pacman.ResetState();
+    }
+
+    private void GameOver()
+    {
+        gameOverText.enabled = true;
+
+        for (int i = 0; i < ghosts.Length; i++) {
+            ghosts[i].gameObject.SetActive(false);
+        }
+
+        pacman.gameObject.SetActive(false);
+    }
+
+    private void SetPacmanScore(int score)
+    {
+        this.pscore = score;
+        pacmanScoreText.text = score.ToString().PadLeft(2, '0');
+    }
+    private void SetGhostScore(int score)
+    {
+        this.gscore = score;
+        ghostScoreText.text = score.ToString().PadLeft(2, '0');
+    }
+
+    public void PelletEaten(Pellet pellet)
+    {
+        pellet.gameObject.SetActive(false);
+
+        SetPacmanScore(pscore + pellet.points);
+
+        if (!HasRemainingPellets())
+        {
+            pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3f);
+        }
+    }
+
+    public void PowerPelletEaten(PowerPellet pellet)
+    {
+        for (int i = 0; i < ghosts.Length; i++) {
+            ghosts[i].frightened.Enable(pellet.duration);
+        }
+
+        PelletEaten(pellet);
+        CancelInvoke(nameof(ResetGhostMultiplier));
+        Invoke(nameof(ResetGhostMultiplier), pellet.duration);
+    }
+
+    private bool HasRemainingPellets()
+    {
+        foreach (Transform pellet in pellets)
+        {
+            if (pellet.gameObject.activeSelf) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void ResetGhostMultiplier()
+    {
+        ghostMultiplier = 1;
+    }
+
+
 }
