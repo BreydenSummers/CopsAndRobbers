@@ -9,7 +9,7 @@ public class Money : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Eat()
     {
-        GameManager.Instance.PelletEaten(this);
+        // GameManager.Instance.PelletEaten(this);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
