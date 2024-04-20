@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         playerJoins = new PlayerJoin[0];
         NewGame();
 
