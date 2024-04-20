@@ -23,6 +23,63 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerJoins = new PlayerJoin[0];
+
+    }
+
+    private void PacmanSetScore(int score)
+    {
+        this.score = score;
+        scoreText_Robber.text = score.ToString().PadLeft(2, '0');
+    }
+
+    private void GhostSetScore(int score)
+    {
+        this.score = score;
+        scoreText_Cop.text = score.ToString().PadLeft(2, '0');
+    }
+
+    public void PacmanEaten()
+    {
+        pacman.DeathSequence();
+        pacman.gameObject.SetActive(false); // Deactivate Pacman
+        GhostSetScore(score + 100); // Increase Ghost
+
+        // Reactivate Pacman after 10 seconds
+        Invoke(nameof(ReactivatePacman), 10f);
+    }
+
+    private void ReactivatePacman()
+    {
+        pacman.gameObject.SetActive(true); // Reactivate Pacman
+    }
+
+    public void PelletEaten(Pellet pellet)
+    {
+        pellet.gameObject.SetActive(false);
+
+        PacmanSetScore(score + pellet.points);
+
+        if (!HasRemainingPellets())
+        {
+            pacman.gameObject.SetActive(false);
+            Invoke(nameof(NewRound), 3f);
+        }
+    }
+
+    private int scoreMultiplier = 1;
+
+    public void PowerPelletEaten(PowerPellet pellet)
+    {
+        scoreMultiplier = 2; // Set score multiplier to 2
+        CancelInvoke(nameof(ResetScoreMultiplier));
+        Invoke(nameof(ResetScoreMultiplier), 10); // Change pellet duration to 10
+    
+        PelletEaten(pellet);
+    }
+    
+    private void ResetScoreMultiplier()
+    {
+        scoreMultiplier = 1; // Reset score multiplier to 1
     }
 
     void Update()
