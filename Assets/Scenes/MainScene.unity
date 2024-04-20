@@ -5685,6 +5685,8 @@ MonoBehaviour:
   cops: []
   robbers: []
   moneys: {fileID: 1581824822}
+  CopScore: 0
+  RobberScore: 0
 --- !u!4 &669816256
 Transform:
   m_ObjectHideFlags: 0
