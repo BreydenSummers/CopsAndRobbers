@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 72987267}
   - component: {fileID: 72987266}
   - component: {fileID: 72987268}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2313,7 +2313,7 @@ GameObject:
   - component: {fileID: 277405074}
   - component: {fileID: 277405080}
   - component: {fileID: 277405081}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Cop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2830,7 +2830,7 @@ GameObject:
   - component: {fileID: 1581824822}
   - component: {fileID: 1581824824}
   - component: {fileID: 1581824823}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Moneys
   m_TagString: Untagged
   m_Icon: {fileID: 0}
