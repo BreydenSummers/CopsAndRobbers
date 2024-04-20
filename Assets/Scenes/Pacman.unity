@@ -11870,6 +11870,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.29
       objectReference: {fileID: 0}
+    - target: {fileID: 6038318316045854513, guid: b6894cca0173e8041bba0e4a8be5fde1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6038318316045854515, guid: b6894cca0173e8041bba0e4a8be5fde1, type: 3}
       propertyPath: m_Enabled
       value: 0

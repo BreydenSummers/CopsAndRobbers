@@ -7,11 +7,12 @@ public class Pellet : MonoBehaviour
 
     protected virtual void Eat()
     {
-        // GameManager.Instance.PelletEaten(this);
+        GameManager.Instance.PelletEaten(this);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Ate Pellot");
         if (other.gameObject.layer == LayerMask.NameToLayer("Pacman")) {
             Eat();
         }
