@@ -9,6 +9,16 @@ public class GameManager : MonoBehaviour
     public GameObject nameObject;
     private PlayerJoin[] playerJoins;
 
+    public Cop[] cops;
+    public Robber[] robbers;
+
+    public Transform moneys;
+
+    private int CopScore = 0;
+    private int RobberScore = 0;
+
+
+
     // Madder functions that you may call
     // These functions should be conditionally called based on if this is inside a WebGL build, not the editor
     [DllImport("__Internal")]
@@ -23,6 +33,32 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerJoins = new PlayerJoin[0];
+    }
+    private void NewGame(){
+        SetCopScore(0);
+        SetRobberScore(0);
+        NewRound();
+    }
+    private void NewRound(){
+        foreach (Transform money in this.moneys)
+        {
+            money.gameObject.SetActive(true);
+        }
+        for (int i = 0; i < this.cops.Length; i++)
+        {
+            this.cops[i].gameObject.SetActive(true);
+        }
+        for (int i = 0; i < this.robbers.Length; i++)
+        {
+            this.robbers[i].gameObject.SetActive(true);
+        }
+
+    }
+    private void SetCopScore(int copScore){
+        CopScore = copScore;
+    }
+    private void SetRobberScore(int robberScore){
+        RobberScore = robberScore;
     }
 
     void Update()
