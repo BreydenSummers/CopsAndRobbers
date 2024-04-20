@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Walls
+  - Cops
+  - Robbers
   - Money
-  - Cop
-  - 
-  - 
+  - Obstacles
+  - Node
   - 
   - 
   - 
