@@ -32,17 +32,17 @@ public class Ghost : MonoBehaviour
         gameObject.SetActive(true);
         movement.ResetState();
 
-        frightened.Disable();
-        chase.Disable();
-        scatter.Enable();
+        //.Disable();
+        //chase.Disable();
+        //scatter.Enable();
 
-        if (home != initialBehavior) {
-            home.Disable();
-        }
+        //if (home != initialBehavior) {
+            //home.Disable();
+        //}
 
-        if (initialBehavior != null) {
-            initialBehavior.Enable();
-        }
+        //if (initialBehavior != null) {
+            //initialBehavior.Enable();
+        //}
     }
 
     public void SetPosition(Vector3 position)
