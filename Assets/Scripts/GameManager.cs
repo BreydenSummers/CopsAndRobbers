@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public GameObject nameObject;
     private PlayerJoin[] playerJoins;
 
+    public int CopCatchPoints;
+    public int RobberCatchPoints;
+
     public Cop[] cops;
     public Robber[] robbers;
 
@@ -54,12 +57,36 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    private void GameOver(){
+        for (int i = 0; i < this.cops.Length; i++)
+        {
+            this.cops[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < this.robbers.Length; i++)
+        {
+            this.robbers[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void RobberCaught(Robber robber){
+        SetCopScore(this.CopScore + this.RobberCatchPoints);
+        robber.gameObject.SetActive(false);
+    }
+    public void CopCaught(Cop cop){
+        SetRobberScore(this.RobberScore + this.CopCatchPoints);
+        cop.gameObject.SetActive(false);
+
+    }
+
     private void SetCopScore(int copScore){
         CopScore = copScore;
     }
     private void SetRobberScore(int robberScore){
         RobberScore = robberScore;
     }
+
+
 
     void Update()
     {
@@ -97,34 +124,34 @@ public class GameManager : MonoBehaviour
 
         // Test PlayerControllerState for Player 0
         // TODO: Any of the following code may be modified or deleted
-        if (playerJoins.Length > 0)
-        {
-            Joystick joystick = new Joystick(0, 0);
-            if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
-            {
-                joystick.y = 100;
-            }
-            if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
-            {
-                joystick.y = -100;
-            }
-            if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-            {
-                joystick.x = -100;
-            }
-            if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
-            {
-                joystick.x = 100;
-            }
-            ControllerState controllerState = new ControllerState();
-            controllerState.name = playerJoins[0].name;
-            controllerState.joystick = joystick;
-            controllerState.circle = false;
-            controllerState.triangle = false;
-            controllerState.plus = false;
-            string jsonControllerState = JsonUtility.ToJson(controllerState);
-            PlayerControllerState(jsonControllerState);
-        }
+        // if (playerJoins.Length > 0)
+        // {
+        //     Joystick joystick = new Joystick(0, 0);
+        //     if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+        //     {
+        //         joystick.y = 100;
+        //     }
+        //     if (Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.W))
+        //     {
+        //         joystick.y = -100;
+        //     }
+        //     if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        //     {
+        //         joystick.x = -100;
+        //     }
+        //     if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        //     {
+        //         joystick.x = 100;
+        //     }
+        //     ControllerState controllerState = new ControllerState();
+        //     controllerState.name = playerJoins[0].name;
+        //     controllerState.joystick = joystick;
+        //     controllerState.circle = false;
+        //     controllerState.triangle = false;
+        //     controllerState.plus = false;
+        //     string jsonControllerState = JsonUtility.ToJson(controllerState);
+        //     PlayerControllerState(jsonControllerState);
+        // }
 
         // Test HandleExit
         // TODO: Any of the following code may be modified or deleted
