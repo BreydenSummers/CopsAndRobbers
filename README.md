@@ -1,13 +1,15 @@
-﻿# CopsAndRobbers
-##I'm BLUE dabadeedabadaa
+---
 
+<h1 align="center">
+ Crt1cCtr1v wuz here
+</h1>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget est eu lectus mattis placerat. Ut in suscipit libero, quis bibendum odio. Aliquam id efficitur nunc, ac dictum dui. Curabitur luctus, mi a lacinia mattis, diam lorem feugiat urna, at luctus erat massa eget tortor. Fusce eu elit justo. Quisque egestas auctor lectus, sit amet tempus dolor vestibulum volutpat. Quisque leo nisi, tristique nec mattis sit amet, pulvinar placerat arcu. Aenean ornare id ligula vel imperdiet. Mauris egestas id dui in suscipit. Aenean massa magna, dictum ac tristique vitae, facilisis nec leo. Nulla dictum gravida arcu, quis eleifend diam ornare et. Curabitur scelerisque sit amet nisi sit amet scelerisque.
+<p align="center">
+ 
+</p>
 
-Nam velit tellus, dictum sit amet elit a, cursus sollicitudin quam. Ut malesuada nunc nunc, vitae placerat mi lobortis in. Quisque dolor orci, commodo eu pharetra ut, venenatis id sem. Maecenas venenatis lobortis pellentesque. Maecenas in varius nunc, nec hendrerit ex. Morbi id mattis turpis. Aliquam scelerisque cursus ante. Duis vestibulum consequat accumsan. Duis dignissim diam quis nisl ullamcorper interdum. In eu leo ante.
+<p align="center"> 
+ <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnFhcGJyZXh3ZjMyYmJwNTc0Y3lkdHg2d3gzdmw2eGcyeWxzOWNvZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3orif18ehkPq7Baxqg/giphy.gif">
+</p>
 
-Aliquam interdum ornare est. Donec a nisi nec purus dapibus tincidunt. Etiam et porttitor eros, id feugiat purus. Praesent lobortis enim sed mi condimentum rhoncus. Etiam a ipsum semper, tempor lacus eget, fermentum dui. Sed eleifend metus nisi, ac tempor lacus gravida non. Sed sit amet ultricies diam, quis pulvinar neque. Suspendisse potenti. Quisque ullamcorper eros eget tincidunt sodales. Mauris blandit, ligula sed rutrum commodo, mauris leo sodales odio, feugiat dignissim magna magna ut urna. Pellentesque molestie, mauris in aliquam semper, justo lorem fermentum elit, eget porttitor enim tellus vel lorem. Aliquam tortor purus, posuere placerat lectus ac, euismod semper nisi. Nam vulputate nulla sed pharetra scelerisque. Ut eget tortor augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-
-Suspendisse sit amet felis non magna vehicula varius. Duis rhoncus, tellus non varius varius, velit libero luctus nibh, nec rhoncus nisl felis eu nulla. Fusce ut lobortis nisi. Nullam tempor accumsan feugiat. Morbi sit amet tincidunt mauris. Nullam consequat tortor ut bibendum egestas. Ut justo libero, ullamcorper id mollis at, tincidunt interdum dui. Proin euismod erat sit amet massa tempus, in pharetra tellus congue. Aliquam tortor leo, euismod nec magna sit amet, iaculis maximus mi. Aenean et elementum purus. Donec nunc nisl, tempor scelerisque cursus sed, euismod ut odio.
-
-Quisque tempus ut sem id ultricies. Praesent tincidunt tortor sed erat fringilla, sit amet luctus turpis facilisis. Aenean justo felis, viverra vitae lacus et, facilisis luctus nibh. Etiam nec rutrum mauris, elementum placerat lacus. Proin ultricies turpis at erat iaculis, in rutrum augue molestie. Etiam faucibus turpis non ultricies tincidunt. Nulla eu cursus odio.
+---
