@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour
 
     public Transform moneys;
 
-    private int CopScore = 0;
-    private int RobberScore = 0;
+    public int CopScore = 0;
+    public int RobberScore = 0;
 
 
 
